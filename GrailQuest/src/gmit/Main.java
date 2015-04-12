@@ -31,16 +31,7 @@ public class Main
 	        SAXParser saxParser = saxParserFactory.newSAXParser();
 	        Parser handler = new Parser();
 	        saxParser.parse(new File("game.xml"), handler);
-	        
-	        //Get Employees list
-	        //List<Employee> empList = handler.getEmpList();
-	        
-	        //print employee information
-	       /* for(Employee emp : empList)
-	        {
-	        	System.out.println(emp);
-	        }*/
-	            
+	       	            
 	    } catch (ParserConfigurationException | SAXException | IOException e)
 	    {
 	        e.printStackTrace();
@@ -70,6 +61,9 @@ public class Main
 							+ "As a consequence of the defeat at Hattin, a large Saracen army is marching on Jerusalem and the Kingdom is now swarming\n"
 						    + "with Saracen invaders. Danger lurks everywhere, among the common folk are thieves and brigands who wish to assail or rob you or worse...!");
 		System.out.println("----------------------------------------------------------------------");
+		
+		JourneyMap jm = new JourneyMap();
+		
 		String urInput = input.nextLine();		
 		System.out.println("> User's Input: " + urInput);
 		

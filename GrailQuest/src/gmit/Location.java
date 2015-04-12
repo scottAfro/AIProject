@@ -11,10 +11,9 @@ public class Location
 	private int id;
 	private String name;
 	private String description;
-	private String exit;
 	private List<AbstractCharacter> observer = new ArrayList<AbstractCharacter>(); 
 	private List<Item> objeccts = new ArrayList<Item>();
-	private List<Exit> exits = new ArrayList<Exit>();
+	private HashMap<Location, Directions> exits = new HashMap<Location, Directions>();
 	
 	public int getId()
 	{
@@ -43,13 +42,40 @@ public class Location
 		this.description = description;
 	}
 	
-	public String getExit()
+	public String getExitString()
 	{
-		return exit;
+		String returnString = "Exits: ";
+		Set<Location> keys = exits.keySet();
+		for(Location exits : keys)
+		{
+			returnString += " " + exits;
+		}
+		return returnString;
 	}
-	public void setExit(String exit) 
+	
+	public Directions getExit(Directions dir)
 	{
-		this.exit = exit;
+		 return exits.get(dir);
+	}
+	public void setExit(Location neighbour, Directions dir) 
+	{
+		exits.put(neighbour, dir);
+	}
+	
+	public void addItem(Item i)
+	{
+		objeccts.add(i);
+	}
+	
+	public String getItem(int i)
+	{
+		if(i < objeccts.size())
+		{
+			return objeccts.get(i).toString();
+		}
+		else{
+			return "item does not exist";
+		}
 	}
 	@Override
 	public String toString() 

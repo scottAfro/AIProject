@@ -9,6 +9,7 @@ package gmit;
 public class JourneyMap 
 {
 	private Node jerusalem;
+	private Node currentLocation;
 	
 	public JourneyMap()
 	{
@@ -138,6 +139,7 @@ public class JourneyMap
 		limasso.addChildNode(antiochPort, 32);
 		
 		cyprus.addChildNode(limasso, 12);
+		currentLocation = jerusalem;
 	}
 	
 	public Node getStartNode()

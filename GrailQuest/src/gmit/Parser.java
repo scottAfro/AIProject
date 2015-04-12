@@ -67,35 +67,6 @@ public class Parser extends DefaultHandler
 	}
 	
 	/*
-	 * Use the characters() method to extract the PCDATA contained by an XML element, e.g. the text You are in hot dreary desert, with sand dunes and ......
-	 * contained by the element <description> in the sample XML files. Read attribute data in startElement(). See the Location example below.
-	 */
-	public void characters(char[] ch,int start, int length) throws SAXException
-	{
-		if (location)
-		{
-			
-		}else if (description)
-		{
-			des.setDescription(new String(ch, start, length));	
-			description = false;
-		}else if (exit)
-		{
-		
-		}else if (item)
-		{
-			
-		}else if (gameCharacter)
-		{	
-		
-		}else if (searchAlgorithm)
-		{
-			
-		}
-	}	
-	
-	
-	/*
 	 * 	This call-back method in executed by SAX when a new starting element is encountered in the XML document. The PCDATA (parseable character data), i.e.
 		the data contained between the opening and closing XML element (e.g. <description>) is not read here, but in the characters() method above. Unless you
 		are reading attribute values, startElement() is only used to switch on the boolean instance variables for each element.
@@ -136,14 +107,14 @@ public class Parser extends DefaultHandler
 			try 
 			{
 				//Read in the values for the attributes of the element <exit>
-				//Location locationTitle =  
+				//Location locationTitle =  atts.getValue("title");
 				//Directions dir = atts.getValue("direction");
 				
 				//Generate a new instance of Exit on-the-fly using reflection. The statement Class.forName("gmit.Exit").newInstance(); invokes the 
 				//Java Class Loader and the calls the null (default) constructor of Location.
-				Exit ex = (Exit) Class.forName("gmit.Exit").newInstance();
-				//ex.setLocation(locationTitle);
-				//ex.setDirections(dir);
+				Location loc = (Location) Class.forName("gmit.Location").newInstance();
+				//loc.setLocation(locationTitle);
+				//loc.setDirections(dir);
 				
 				//Now configure the exit object with an title, direction
 			} catch (Exception e) {
@@ -202,6 +173,35 @@ public class Parser extends DefaultHandler
 				// TODO: handle exception
 				e.printStackTrace();
 			}
+		}
+	}	
+	
+	
+	/*
+	 * Use the characters() method to extract the PCDATA contained by an XML element, e.g. the text You are in hot dreary desert, with sand dunes and ......
+	 * contained by the element <description> in the sample XML files. Read attribute data in startElement(). See the Location example below.
+	 */
+	public void characters(char[] ch,int start, int length) throws SAXException
+	{
+		if (location)
+		{
+			
+		}else if (description)
+		{
+			des.setDescription(new String(ch, start, length));	
+			description = false;
+		}else if (exit)
+		{
+		
+		}else if (item)
+		{
+			
+		}else if (gameCharacter)
+		{	
+		
+		}else if (searchAlgorithm)
+		{
+			
 		}
 	}	
 	
