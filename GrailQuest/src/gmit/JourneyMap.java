@@ -1,3 +1,9 @@
+/**
+ * Scott Kennedy
+ * This class connects the nodes with one another 
+ * giving them their heuristic, terrain, and danger values
+ */
+
 package gmit;
 
 public class JourneyMap 
