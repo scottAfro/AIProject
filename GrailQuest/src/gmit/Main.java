@@ -13,9 +13,11 @@ import net.sourceforge.jFuzzyLogic.FIS;
 
 import org.xml.sax.SAXException;
 
+
 public class Main
 {
 	private static Location location = new Location();
+	
 	
 	public static Location getInstance()
 	{
@@ -38,7 +40,7 @@ public class Main
 	    }
 	    
 	    // Load from 'FCL' file
-        String fileName = "fcl/tipper.fcl";
+        String fileName = "fcl/rules.fcl";
         FIS fis = FIS.load(fileName,true);
 
         // Error while loading?
@@ -64,9 +66,51 @@ public class Main
 		
 		JourneyMap jm = new JourneyMap();
 		
-		String urInput = input.nextLine();		
-		System.out.println("> User's Input: " + urInput);
-		
-		
+		boolean play = true;
+		while(play)
+		{
+			System.out.println("What would you like to do?");
+			Scanner scan = new Scanner(System.in);
+			String urInput = scan.nextLine();		
+			System.out.println("> User's Input: " + urInput);
+			switch(urInput)
+			{
+				case("look"):
+				{
+					location.getName();
+					location.getDescription();
+					location.getExitString();
+					break;
+				}
+				case("leave"):
+				{
+					
+					location.getName();	
+					location.getExitString();					
+					System.out.println("\nEnter the direction you want to go?");
+					urInput = scan.nextLine();	
+					break;
+				}
+				case("attack"):
+				{
+					
+				}
+				case("commands"):
+				{
+					System.out.println("go");
+					System.out.println("leave");
+					System.out.println("attack");
+					System.out.println("use");
+					System.out.println("quit");
+				}
+				case("quit"):
+				{
+					System.out.println("Bye Adventure " + name);
+					play = false;
+				}
+				default: System.out.println("Invalid Command");
+			}
+			
+		}	
 	}
 }
