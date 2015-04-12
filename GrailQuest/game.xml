@@ -1,0 +1,218 @@
+<game-graph>
+	<location id="1" name="Jerusalem City">
+		<description>
+			You are in Jerusalem City, is one of the oldest cities in the world, 
+			you have in your inventory the Holy Grail. Your mission as a Templar Knight
+			is to safely get to Cyprus.
+		</description>
+		<exit title="Al-Ram" direction="NW" />
+		<exit title="Mount Herzl" direction="W"/>
+		<exit title="Bayt Einun" direction="S"/>
+	</location>
+	
+	<location id="2" name="Al-Ram">
+		<description>
+			This is a village on the outskirts of the Jerusalem city, mostly Christian,
+			quite village folk and farmers live here.
+			
+		</description>
+		<exit title="Bayt Ghur" direction="SW"/>
+		<exit title="Jerusalem City" direction="SE"/>
+	</location>
+	
+	<location id="3" name="Bayt Ghur">
+		<description>
+			Bayt Ghur
+		</description>
+		<exit title="Modi'in Makabim-Re'ut" direction="S"/>
+		<exit title="Al-Ram" direction="N"/>
+	</location>
+	
+	<location id="4" name="Modi'in Makabim-Re'ut">
+		<description>
+			Ancient Modi'in was the place of origin of the Jewish Hasmonean dynasty that ruled Judea,
+			a wealthy city.
+		</description>
+		<exit title="Beit Shemesh" direction="SW"/>
+		<exit title="Bayt Ghur" direction="N"/>
+	</location>
+	
+	<location id="5" name="Gizmo">
+		<description>
+			Gizmo
+		</description>
+		<exit title="Tal Shahar" direction="SE"/>
+		<exit title="Modi'in Makabim-Re'ut" direction="NE"/>
+	</location>
+	
+	<location id="6" name="Mount Herzl">
+		<description>
+			Mountain that has rough terrain, thick with forest with animals.
+		</description>
+		<exit title="Evan Sapir" direction="W"/>
+		<exit title="Jerusalem City" direction="E"/>
+	</location>
+	
+	<location id="7" name="Evan Sapir">
+		<description>
+			The top of Mount Herzl, a trail point which follows down the 
+			other side of the mountain.
+		</description>
+		<exit title="Tsur Hadasa" direction="S"/>
+		<exit title="Mount Herzl" direction="N"/>
+	</location>
+	
+	<location id="8" name="Tsur Hadasa">
+		<description>
+			
+		</description>
+		<exit title="Beit Shemesh" direction="W"/>
+		<exit title="Evan Sapir" direction="N"/>
+	</location>
+	
+	<location id="9" name="Beit Shemesh">
+		<description>
+			Beit Shemesh
+		</description>
+		<exit title="Modi'in Makabim-Re'ut" direction="NW"/>
+		<exit title="Tal Shahar" direction="W"/>
+		<exit title="Ahuzam" direction="SE"/>
+		<exit title="Tsur Hadasa" direction="E"/>
+	</location>
+	
+	<location id="10" name="Tal Shahar">
+		<description>
+			Tal Shahar
+		</description>
+		<exit title="Yad Binyamin" direction="SW"/>
+		<exit title="Beit Shemesh" direction="E"/>
+		<exit title="Gizmo" direction="NW"/>
+	</location>
+	
+	<location id="11" name="Yad Binyamin">
+		<description>
+			Yad Binyamin
+		</description>
+		<exit title="Antioch City" direction="S"/>
+		<exit title="Tal Shahar" direction="NE"/>
+	</location>
+	
+	<location id="12" name="Antioch City">
+		<description>
+			Antioch City
+		</description>
+		<exit title="Port of Antioch" direction="S"/>
+		<exit title="Yad Binyamin" direction="N"/>
+	</location>
+	
+	<location id="13" name="Port of Antioch">
+		<description>
+			Port of Antioch
+		</description>
+		<exit title="Antioch City" direction="N"/>
+		<exit title="Limasso" direction="NW"/>
+		<exit title="Kiryat Gat" direction="SE"/>
+	</location>
+	
+	<location id="14" name="Bayt Einun">
+		<description>
+			Bayt Einun
+		</description>
+		<exit title="Evan Sapir" direction="W"/>
+		<exit title="Jerusalem City" direction="N"/>	
+		<exit title="Hura" direction="SW"/>		
+	</location>
+	
+	<location id="15" name="Hura">
+		<description>
+			Hura
+		</description>
+		<exit title="Be'er Sheva" direction="SW"/>
+		<exit title="Bayt Einun" direction="NE"/>
+	</location>
+	
+	<location id="16" name="Be'er Sheva">
+		<description>
+			Be'er Sheva
+		</description>
+		<exit title="Ahuzam" direction="W"/>
+		<exit title="Hura" direction="NE"/>
+	</location>
+	
+	<location id="17" name="Ahuzam">
+		<description>
+			Ahuzam
+		</description>
+		<exit title="Kiryat Gat" direction="W"/>
+		<exit title="Beit Shemesh" direction="NW"/>
+		<exit title="Be'er Sheva" direction="E"/>
+	</location>
+	
+	<location id="18" name="Kiryat Gat">
+		<description>
+			Kiryat Gat
+		</description>
+		<exit title="Port of Antioch" direction="W"/>
+		<exit title="Ahuzam" direction="E"/>		
+	</location>
+	
+	<location id="19" name="Limasso">
+		<description>
+			Limasso
+		</description>
+		<exit title="Cyprus" direction="N"/>
+		<exit title="Port of Antioch" direction="SE"/>
+	</location>
+	
+	<location id="20" name="Cyprus">
+		<description>
+			Cyprus
+		</description>
+		<exit title="Limasso" direction="S"/>
+	</location>
+	
+	<character id="1" name="Templar Knight" type="gmit.Templar.class">
+		<search-algorithm type="gmit.Astar.class"/>
+		<item name="Axe" type="gmit.Item.class" Value="30"/>
+	</character>
+	
+	<character id="14" name="Saracen" type="gmit.Saracen.class">
+		<search-algorithm name="gmit.Astar.class"/>
+		<item name="Sword" type="gmit.Item.class" Value="10"/>
+	</character>
+	
+	<character id="7" name="Thief" type="gmit.Thief.class">
+		<search-algorithm type="gmit.HillClimbing.class"/>
+		<item name="Dagger" type="gmit.Item.class" Value="10"/>
+	</character>
+	
+	<character id="2" name="Local Folk" type="gmit.Folk.class">
+		<search-algorithm type="gmit.Astar.class"/>
+		<item name="Water" type="gmit.Item.class" Value="20"/>
+	</character>
+	
+	<character id="16" name="Village Folk" type="gmit.Folk.class">
+		<search-algorithm type="gmit.HillClimbing.class"/>
+		<item name="Banana" type="gmit.Item.class" Value="20"/>
+	</character>
+	
+	<character id="8" name="Random Folk" type="gmit.Folk.class">
+		<search-algorithm type="gmit.HillClimbing.class"/>
+		<item name="Sword" type="gmit.Item.class" Value="30"/>
+	</character>
+	
+	<character id="7" name="Mountain Folk" type="gmit.Folk.class">
+		<search-algorithm type="gmit.HillClimbing.class"/>
+		<item name="Bread" type="gmit.Item.class" Value="10"/>
+	</character>
+	
+	<item name="Bread" type="gmit.Item.class" Value="10" locationID="8" />
+	<item name="Meat" type="gmit.Item.class" Value="30" locationID="12"/>
+	<item name="Water" type="gmit.Item.class" Value="20" locationID="4"/>
+	<item name="Sword" type="gmit.Item.class" Value="20" locationID="11"/>
+	<item name="Dagger" type="gmit.Item.class" Value="10" locationID="16"/>
+	<item name="Axe" type="gmit.Item.class" Value="30" locationID="3"/>
+	<item name="Banana" type="gmit.Item.class" Value="10" locationID="18"/>
+	<item name="Holy Grail" type="gmit.Item.class" Value="1" locationID="1"/
+	
+</game-graph>
