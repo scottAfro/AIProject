@@ -10,6 +10,8 @@ import java.util.*;
 import javax.xml.parsers.*;
 
 import net.sourceforge.jFuzzyLogic.FIS;
+import net.sourceforge.jFuzzyLogic.FunctionBlock;
+import net.sourceforge.jFuzzyLogic.plot.JFuzzyChart;
 
 import org.xml.sax.SAXException;
 
@@ -26,6 +28,9 @@ public class Main
 
 	public static void main(String[] args)
 	{
+		/**
+		 * The parser Part of the main
+		 */
 		// TODO Auto-generated method stub
 		SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
 	    try 
@@ -39,6 +44,9 @@ public class Main
 	        e.printStackTrace();
 	    }
 	    
+	    /**
+	     * The AI part of the main
+	     */
 	    // Load from 'FCL' file
         String fileName = "fcl/rules.fcl";
         FIS fis = FIS.load(fileName,true);
@@ -49,6 +57,26 @@ public class Main
             System.err.println("Can't load file: '" + fileName + "'");
             return;
         }	    
+        
+        FunctionBlock functionBlock = fis.getFunctionBlock("power");
+        
+
+        // Show 
+        JFuzzyChart.get().chart(functionBlock);
+
+        // Set inputs
+        fis.setVariable("myLifeForce", 100);
+        fis.setVariable("enemyLifeforce", 75);
+        
+        // Evaluate
+        fis.evaluate();
+
+        // Show output variable's chart
+        net.sourceforge.jFuzzyLogic.rule.Variable attackPower = functionBlock.getVariable("attackPower");
+        JFuzzyChart.get().chart(attackPower, attackPower.getDefuzzifier(), true);
+
+        // Print ruleSet
+        System.out.println(fis);
 	    
 	    //System Object	    
 		Scanner input = new Scanner(System.in);
