@@ -1,9 +1,3 @@
-/*
-	Scott Kennedy
-	This is my fuzzy control language file which controls the attack
-	range by reading in my characters health and the enemies health
-*/
-
 FUNCTION_BLOCK power	// Block definition (there may be more than one block per file)
 
 VAR_INPUT				// Define input variables

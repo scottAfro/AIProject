@@ -213,6 +213,6 @@
 	<item name="Dagger" type="gmit.Item.class" Value="10" locationID="16"/>
 	<item name="Axe" type="gmit.Item.class" Value="30" locationID="3"/>
 	<item name="Banana" type="gmit.Item.class" Value="10" locationID="18"/>
-	<item name="Holy Grail" type="gmit.Item.class" Value="1" locationID="1"/
+	<item name="Holy Grail" type="gmit.Item.class" Value="1" locationID="1"/>
 	
 </game-graph>

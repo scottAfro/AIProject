@@ -27,57 +27,7 @@ public class Main
 	}
 
 	public static void main(String[] args)
-	{
-		/**
-		 * The parser Part of the main
-		 */
-		// TODO Auto-generated method stub
-		SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
-	    try 
-	    {
-	        SAXParser saxParser = saxParserFactory.newSAXParser();
-	        Parser handler = new Parser();
-	        saxParser.parse(new File("game.xml"), handler);
-	       	            
-	    } catch (ParserConfigurationException | SAXException | IOException e)
-	    {
-	        e.printStackTrace();
-	    }
-	    
-	    /**
-	     * The AI part of the main
-	     */
-	    // Load from 'FCL' file
-        String fileName = "fcl/rules.fcl";
-        FIS fis = FIS.load(fileName,true);
-
-        // Error while loading?
-        if( fis == null ) 
-        { 
-            System.err.println("Can't load file: '" + fileName + "'");
-            return;
-        }	    
-        
-        FunctionBlock functionBlock = fis.getFunctionBlock("power");
-        
-
-        // Show 
-        JFuzzyChart.get().chart(functionBlock);
-
-        // Set inputs
-        fis.setVariable("myLifeForce", 100);
-        fis.setVariable("enemyLifeforce", 75);
-        
-        // Evaluate
-        fis.evaluate();
-
-        // Show output variable's chart
-        net.sourceforge.jFuzzyLogic.rule.Variable attackPower = functionBlock.getVariable("attackPower");
-        JFuzzyChart.get().chart(attackPower, attackPower.getDefuzzifier(), true);
-
-        // Print ruleSet
-        System.out.println(fis);
-	    
+	{	    
 	    //System Object	    
 		Scanner input = new Scanner(System.in);
 		System.out.println("Welcome Adventurer!!! \n What is your name?");
@@ -140,5 +90,54 @@ public class Main
 			}
 			
 		}	
+		
+		/**
+		 * The parser Part of the main
+		 */
+		// TODO Auto-generated method stub
+		SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
+	    try 
+	    {
+	        SAXParser saxParser = saxParserFactory.newSAXParser();
+	        Parser handler = new Parser();
+	        saxParser.parse(new File("game.xml"), handler);
+	       	            
+	    } catch (ParserConfigurationException | SAXException | IOException e)
+	    {
+	        e.printStackTrace();
+	    }
+	    
+	    /**
+	     * The AI part of the main
+	     */
+	    // Load from 'FCL' file
+        String fileName = "flc/rules.fcl";
+        FIS fis = FIS.load(fileName,true);
+
+        // Error while loading?
+        if( fis == null ) 
+        { 
+            System.err.println("Can't load file: '" + fileName + "'");
+            return;
+        }	    
+        
+        FunctionBlock functionBlock = fis.getFunctionBlock("power");        
+
+        // Show 
+        JFuzzyChart.get().chart(functionBlock);
+
+        // Set inputs
+        fis.setVariable("myLifeForce", 100);
+        fis.setVariable("enemyLifeforce", 75);
+        
+        // Evaluate
+        fis.evaluate();
+
+        // Show output variable's chart
+        net.sourceforge.jFuzzyLogic.rule.Variable attackPower = functionBlock.getVariable("attackPower");
+        JFuzzyChart.get().chart(attackPower, attackPower.getDefuzzifier(), true);
+
+        // Print ruleSet
+        System.out.println(fis);
 	}
 }
